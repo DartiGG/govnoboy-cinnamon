@@ -167,6 +167,17 @@ class ApiImageFeedDesklet extends Desklet.Desklet {
         return data.url;
     }
 
+    _cleanupOldFiles() {
+        if (!this._files) return;
+        for (let file of this._files) {
+            if (file && file.query_exists(null)) {
+                try {
+                    file.delete(null);
+                } catch (_) {}
+            }
+        }
+    }
+
     async _refresh() {
         if (this._loading)
             return;
@@ -187,6 +198,8 @@ class ApiImageFeedDesklet extends Desklet.Desklet {
             if (!urls.length)
                 throw new Error('Ошибка');
 
+            this._cleanupOldFiles();
+
             this._urls = urls;
             this._index = 0;
             this._files = [];
@@ -195,9 +208,11 @@ class ApiImageFeedDesklet extends Desklet.Desklet {
             this._inactiveImage.translation_x = 0;
             this._inactiveImage.translation_y = 0;
 
-            await this._downloadPreview(0, generation);
-            if (generation === this._requestGeneration)
+            let firstFile = await this._downloadPreview(0, generation);
+            if (generation === this._requestGeneration && firstFile) {
+                this._setImageActorFile(this._activeImage, firstFile);
                 this._setStatus(`1/${this._urls.length}`);
+            }
         } catch (e) {
             logError(e, 'API Image Feed: refresh failed');
             this._setStatus('Err');
@@ -219,7 +234,7 @@ class ApiImageFeedDesklet extends Desklet.Desklet {
         } catch (_) {}
 
         return Gio.File.new_for_path(
-            GLib.build_filenamev([cacheDir, `image-${index}${ext}`])
+            GLib.build_filenamev([cacheDir, `img-${this._requestGeneration}-${index}${ext}`])
         );
     }
 
@@ -393,6 +408,7 @@ class ApiImageFeedDesklet extends Desklet.Desklet {
             this._refreshTimer = null;
         }
 
+        this._cleanupOldFiles();
         this._requestGeneration++;
         this._session.abort();
     }

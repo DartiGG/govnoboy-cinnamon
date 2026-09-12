@@ -1,5 +1,5 @@
 # govnoboy-cinnamon
-Десклет для Cinnamon с картинками из тг-бота @govnoboy
+Десклет для Cinnamon с картинками из тг-бота @govnoboybot
 <img width="1914" height="1079" alt="изображение" src="https://github.com/user-attachments/assets/9d90ced8-4fe7-439d-ba4e-06d1bb637e66" />
 ## Установка
 Это мясо качается очень просто. Просто скачайте архив из releases и распакуйте в: ~/.local/share/cinnamon/desklets

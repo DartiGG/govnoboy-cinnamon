@@ -1,8 +1,8 @@
 {
   "uuid": "govnoboy-images@lowtab",
   "name": "API Image Feed",
-  "description": "Compact TikTok-style image feed from an HTTP API",
-  "version": "1.1.0",
+  "description": "Compact TikTok-style image feed from @govnoboybot",
+  "version": "1.0.0",
   "cinnamon-version": ["6.4", "6.6", "6.8"],
   "max-instances": 1,
   "author": "lowtab",

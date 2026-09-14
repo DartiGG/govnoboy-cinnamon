@@ -1,0 +1,32 @@
+{
+  "enableAutoSwitch": {
+    "type": "switch",
+    "default": true,
+    "description": "Включить автопрокрутку"
+  },
+  "slideInterval": {
+    "type": "spinbutton",
+    "default": 5,
+    "min": 1,
+    "max": 3600,
+    "step": 1,
+    "units": "сек.",
+    "description": "Интервал смены фото"
+  },
+  "presetSize": {
+    "type": "combobox",
+    "default": "medium",
+    "description": "Размер виджета",
+    "options": {
+      "Маленький (110x110)": "small",
+      "Средний (150x150)": "medium",
+      "Большой (230x230)": "large",
+      "Огромный (320x320)": "xlarge"
+    }
+  },
+  "pauseWhenDesktopInactive": {
+    "type": "switch",
+    "default": true,
+    "description": "Не обновлять и не листать, когда рабочий стол неактивен"
+  }
+}

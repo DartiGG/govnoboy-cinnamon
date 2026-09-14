@@ -1,16 +1,10 @@
 .api-image-feed {
-    background-color: rgba(30, 30, 30, 0.85);
+    background-color: transparent;
     border-radius: 8px;
     padding: 6px;
     spacing: 6px;
 }
 
-.image-frame {
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
-    background-color: #000;
-    overflow: hidden;
-}
 
 .status {
     font-size: 9pt;

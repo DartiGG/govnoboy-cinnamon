@@ -1,0 +1,65 @@
+{
+  "layout": {
+    "type": "layout",
+    "pages": ["general"],
+    "general": {
+      "type": "page",
+      "title": "General",
+      "sections": ["auto_slide", "dimensions"]
+    },
+    "auto_slide": {
+      "type": "section",
+      "title": "Автопрокрутка слайдов",
+      "keys": ["enableAutoSwitch", "slideInterval"]
+    },
+    "dimensions": {
+      "type": "section",
+      "title": "Размер виджета",
+      "keys": ["presetSize", "customWidth", "customHeight"]
+    }
+  },
+  "enableAutoSwitch": {
+    "type": "switch",
+    "default": true,
+    "description": "Включить автопрокрутку"
+  },
+  "slideInterval": {
+    "type": "spinbutton",
+    "default": 5,
+    "min": 1,
+    "max": 3600,
+    "step": 1,
+    "units": "сек.",
+    "description": "Интервал смены фото"
+  },
+  "presetSize": {
+    "type": "combobox",
+    "default": "medium",
+    "description": "Размер виджета",
+    "options": {
+      "Маленький (160x110)": "small",
+      "Средний (220x150)": "medium",
+      "Большой (340x230)": "large",
+      "Огромный (480x320)": "xlarge",
+      "Свой размер": "custom"
+    }
+  },
+  "customWidth": {
+    "type": "spinbutton",
+    "default": 220,
+    "min": 100,
+    "max": 1920,
+    "step": 10,
+    "units": "px",
+    "description": "Ширина"
+  },
+  "customHeight": {
+    "type": "spinbutton",
+    "default": 150,
+    "min": 80,
+    "max": 1080,
+    "step": 10,
+    "units": "px",
+    "description": "Высота"
+  }
+}
